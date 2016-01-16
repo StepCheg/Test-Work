@@ -31,6 +31,14 @@
     self.arrayOfSongs = @[@"Song1", @"Song2", @"Song3"]; // Наполняю массив треками(название файла композиции без расширения файла)
 }
 
+-(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;   // В таблице будет одна секция
+}
+
+-(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.arrayOfSongs count];   // Количество строк в таблице равно клоичеству треков
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
