@@ -100,6 +100,25 @@
     return [self.arrayOfSongs count];   // Количество строк в таблице равно клоичеству треков
 }
 
+-(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSString* cellIdentifier = [[NSString alloc] initWithFormat:@"cell"];   // Иницализирую идентификатор повторного использования
+    
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];   // Ищу ячейку в очереди таблицы
+    
+    if (cell==nil) {                                                                                                // Если не нашел ячейку в очереди,
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier]; // то инициализировать ее
+    }
+    
+    NSInteger index = [indexPath row];  // Здесь хранится номер строки таблицы
+    
+    cell.textLabel.text = [self getSongArtist:self.arrayOfSongs[index]];        //  Задаю название исполнителя для ячейки
+    cell.detailTextLabel.text = [self getSongTitle:self.arrayOfSongs[index]];   //  Задаю название композиции для ячейки
+    cell.imageView.image = [self getSongArtwork:self.arrayOfSongs[index]];      //  Задаю обложку альбома для ячейки
+    
+    return cell;    // Возвращаю ячейку
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
