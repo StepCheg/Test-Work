@@ -10,6 +10,9 @@
 
 @interface ViewController ()
 
+
+@property (strong ,nonatomic) NSArray* arrayOfSongs;    // Объявляю массив как свойство, чтобы иметь доступ к нему в любом методе
+
 @end
 
 @implementation ViewController
@@ -24,12 +27,12 @@
     listOfSongs.dataSource = self;  // Присваиваю контроллер в качестве источника данных
     
     [self.view addSubview:listOfSongs]; // Добавляю таблицу
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    self.arrayOfSongs = @[@"Song1", @"Song2", @"Song3"]; // Наполняю массив треками(название файла композиции без расширения файла)
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
