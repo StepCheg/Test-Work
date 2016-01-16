@@ -16,6 +16,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UITableView* listOfSongs = [[UITableView alloc] initWithFrame:CGRectMake(0, 200, 375, 467) style:UITableViewStylePlain];    // инициализирую таблицу
+    
+    listOfSongs.delegate = self;    // Присваиваю текущий объект табличному виду в качестве делегата
+    
+    listOfSongs.dataSource = self;  // Присваиваю контроллер в качестве источника данных
+    
+    [self.view addSubview:listOfSongs]; // Добавляю таблицу
     // Do any additional setup after loading the view, typically from a nib.
 }
 
