@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A7F9AE71C4A76A900AC4629 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7F9AE61C4A76A900AC4629 /* AVFoundation.framework */; };
+		5A7F9AE91C4A779B00AC4629 /* Artwork.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5A7F9AE81C4A779B00AC4629 /* Artwork.jpg */; };
 		5AE0BB9A1C4A471F00FC72CE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE0BB991C4A471F00FC72CE /* main.m */; };
 		5AE0BB9D1C4A471F00FC72CE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE0BB9C1C4A471F00FC72CE /* AppDelegate.m */; };
 		5AE0BBA01C4A471F00FC72CE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE0BB9F1C4A471F00FC72CE /* ViewController.m */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A7F9AE61C4A76A900AC4629 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		5A7F9AE81C4A779B00AC4629 /* Artwork.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Artwork.jpg; sourceTree = "<group>"; };
 		5AE0BB951C4A471F00FC72CE /* TestWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AE0BB991C4A471F00FC72CE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5AE0BB9B1C4A471F00FC72CE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -33,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A7F9AE71C4A76A900AC4629 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,7 @@
 		5AE0BB8C1C4A471F00FC72CE = {
 			isa = PBXGroup;
 			children = (
+				5A7F9AE61C4A76A900AC4629 /* AVFoundation.framework */,
 				5AE0BB971C4A471F00FC72CE /* TestWork */,
 				5AE0BB961C4A471F00FC72CE /* Products */,
 			);
@@ -66,6 +72,7 @@
 				5AE0BBA41C4A471F00FC72CE /* Assets.xcassets */,
 				5AE0BBA61C4A471F00FC72CE /* LaunchScreen.storyboard */,
 				5AE0BBA91C4A471F00FC72CE /* Info.plist */,
+				5A7F9AE81C4A779B00AC4629 /* Artwork.jpg */,
 				5AE0BB981C4A471F00FC72CE /* Supporting Files */,
 			);
 			path = TestWork;
@@ -137,6 +144,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A7F9AE91C4A779B00AC4629 /* Artwork.jpg in Resources */,
 				5AE0BBA81C4A471F00FC72CE /* LaunchScreen.storyboard in Resources */,
 				5AE0BBA51C4A471F00FC72CE /* Assets.xcassets in Resources */,
 				5AE0BBA31C4A471F00FC72CE /* Main.storyboard in Resources */,
@@ -299,6 +307,7 @@
 				5AE0BBAE1C4A471F00FC72CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
