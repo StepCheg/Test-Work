@@ -35,6 +35,8 @@
     self.arrayOfSongs = @[@"Song1", @"Song2", @"Song3"]; // Наполняю массив треками(название файла композиции без расширения файла)
 }
 
+#pragma mark - Get info of song
+
 -(NSString*) getSongTitle:(NSString*) song {    // Получение названия композиции
     self.fileURL = [[NSBundle mainBundle] URLForResource:song withExtension:@"mp3"];    // Определяю путь к треку
     
@@ -91,6 +93,8 @@
     
     return self.currentSongArtwork;    // Возвращаю обложку альбома
 }
+
+#pragma mark - Change TableView
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;   // В таблице будет одна секция
