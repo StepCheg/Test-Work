@@ -10,4 +10,11 @@
 
 @interface SongViewController : UIViewController
 
+@property (strong, nonatomic) NSString* artistName;
+@property (strong, nonatomic) NSString* creator;
+@property (strong, nonatomic) UIImage* imageArtwork;
+@property (strong, nonatomic) NSString* albumName;
+@property (strong, nonatomic) NSString* songName;
+@property (strong ,nonatomic) NSURL* fileURL;
+
 @end

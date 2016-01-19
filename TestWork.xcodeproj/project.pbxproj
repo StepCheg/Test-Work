@@ -7,8 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A2B84431C4E0F34000834ED /* Artwork.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5A2B843F1C4E0F34000834ED /* Artwork.jpg */; };
+		5A2B84441C4E0F34000834ED /* PauseButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A2B84401C4E0F34000834ED /* PauseButton.png */; };
+		5A2B84451C4E0F34000834ED /* playButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A2B84411C4E0F34000834ED /* playButton.png */; };
+		5A2B84461C4E0F34000834ED /* stopButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A2B84421C4E0F34000834ED /* stopButton.png */; };
 		5A7F9AE71C4A76A900AC4629 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7F9AE61C4A76A900AC4629 /* AVFoundation.framework */; };
-		5A7F9AE91C4A779B00AC4629 /* Artwork.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5A7F9AE81C4A779B00AC4629 /* Artwork.jpg */; };
+		5A83C5CE1C4E2457003B9497 /* 01 - Come Together.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5A83C5CA1C4E2457003B9497 /* 01 - Come Together.mp3 */; };
+		5A83C5CF1C4E2457003B9497 /* 02 - I Don't Care.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5A83C5CB1C4E2457003B9497 /* 02 - I Don't Care.mp3 */; };
+		5A83C5D01C4E2457003B9497 /* 02 - The Take Over, the Breaks Over.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5A83C5CC1C4E2457003B9497 /* 02 - The Take Over, the Breaks Over.mp3 */; };
+		5A83C5D11C4E2457003B9497 /* crazy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5A83C5CD1C4E2457003B9497 /* crazy.mp3 */; };
 		5ACBF26C1C4BDE6F00D43C36 /* SongViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ACBF26B1C4BDE6F00D43C36 /* SongViewController.m */; };
 		5AE0BB9A1C4A471F00FC72CE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE0BB991C4A471F00FC72CE /* main.m */; };
 		5AE0BB9D1C4A471F00FC72CE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE0BB9C1C4A471F00FC72CE /* AppDelegate.m */; };
@@ -19,8 +26,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A2B843F1C4E0F34000834ED /* Artwork.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Artwork.jpg; sourceTree = "<group>"; };
+		5A2B84401C4E0F34000834ED /* PauseButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PauseButton.png; sourceTree = "<group>"; };
+		5A2B84411C4E0F34000834ED /* playButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playButton.png; sourceTree = "<group>"; };
+		5A2B84421C4E0F34000834ED /* stopButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stopButton.png; sourceTree = "<group>"; };
 		5A7F9AE61C4A76A900AC4629 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		5A7F9AE81C4A779B00AC4629 /* Artwork.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Artwork.jpg; sourceTree = "<group>"; };
+		5A83C5CA1C4E2457003B9497 /* 01 - Come Together.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "01 - Come Together.mp3"; sourceTree = "<group>"; };
+		5A83C5CB1C4E2457003B9497 /* 02 - I Don't Care.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "02 - I Don't Care.mp3"; sourceTree = "<group>"; };
+		5A83C5CC1C4E2457003B9497 /* 02 - The Take Over, the Breaks Over.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "02 - The Take Over, the Breaks Over.mp3"; sourceTree = "<group>"; };
+		5A83C5CD1C4E2457003B9497 /* crazy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = crazy.mp3; sourceTree = "<group>"; };
 		5ACBF26A1C4BDE6F00D43C36 /* SongViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongViewController.h; sourceTree = "<group>"; };
 		5ACBF26B1C4BDE6F00D43C36 /* SongViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongViewController.m; sourceTree = "<group>"; };
 		5AE0BB951C4A471F00FC72CE /* TestWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +61,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A2B843E1C4E0F34000834ED /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				5A2B843F1C4E0F34000834ED /* Artwork.jpg */,
+				5A2B84401C4E0F34000834ED /* PauseButton.png */,
+				5A2B84411C4E0F34000834ED /* playButton.png */,
+				5A2B84421C4E0F34000834ED /* stopButton.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		5A83C5C91C4E2457003B9497 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				5A83C5CA1C4E2457003B9497 /* 01 - Come Together.mp3 */,
+				5A83C5CB1C4E2457003B9497 /* 02 - I Don't Care.mp3 */,
+				5A83C5CC1C4E2457003B9497 /* 02 - The Take Over, the Breaks Over.mp3 */,
+				5A83C5CD1C4E2457003B9497 /* crazy.mp3 */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
 		5AE0BB8C1C4A471F00FC72CE = {
 			isa = PBXGroup;
 			children = (
@@ -77,7 +113,8 @@
 				5AE0BBA41C4A471F00FC72CE /* Assets.xcassets */,
 				5AE0BBA61C4A471F00FC72CE /* LaunchScreen.storyboard */,
 				5AE0BBA91C4A471F00FC72CE /* Info.plist */,
-				5A7F9AE81C4A779B00AC4629 /* Artwork.jpg */,
+				5A83C5C91C4E2457003B9497 /* Audio */,
+				5A2B843E1C4E0F34000834ED /* Images */,
 				5AE0BB981C4A471F00FC72CE /* Supporting Files */,
 			);
 			path = TestWork;
@@ -149,10 +186,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A7F9AE91C4A779B00AC4629 /* Artwork.jpg in Resources */,
+				5A83C5CE1C4E2457003B9497 /* 01 - Come Together.mp3 in Resources */,
+				5A2B84431C4E0F34000834ED /* Artwork.jpg in Resources */,
+				5A2B84451C4E0F34000834ED /* playButton.png in Resources */,
 				5AE0BBA81C4A471F00FC72CE /* LaunchScreen.storyboard in Resources */,
+				5A83C5CF1C4E2457003B9497 /* 02 - I Don't Care.mp3 in Resources */,
+				5A83C5D11C4E2457003B9497 /* crazy.mp3 in Resources */,
+				5A2B84441C4E0F34000834ED /* PauseButton.png in Resources */,
 				5AE0BBA51C4A471F00FC72CE /* Assets.xcassets in Resources */,
+				5A83C5D01C4E2457003B9497 /* 02 - The Take Over, the Breaks Over.mp3 in Resources */,
 				5AE0BBA31C4A471F00FC72CE /* Main.storyboard in Resources */,
+				5A2B84461C4E0F34000834ED /* stopButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

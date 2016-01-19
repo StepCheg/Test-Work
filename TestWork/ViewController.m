@@ -16,6 +16,8 @@
 @property (strong ,nonatomic) NSString* currentSongTitle;
 @property (strong ,nonatomic) NSString* currentSongArtist;
 @property (strong ,nonatomic) UIImage* currentSongArtwork;
+@property (strong ,nonatomic) NSString* currentAlbumName;
+@property (strong ,nonatomic) NSString* currentCreator;
 
 @end
 
@@ -24,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UITableView* listOfSongs = [[UITableView alloc] initWithFrame:CGRectMake(0, 200, 375, 467) style:UITableViewStylePlain];    // инициализирую таблицу
+    UITableView* listOfSongs = [[UITableView alloc] initWithFrame:[[UIScreen mainScreen] bounds] style:UITableViewStylePlain];    // инициализирую таблицу
     
     listOfSongs.delegate = self;    // Присваиваю текущий объект табличному виду в качестве делегата
     
@@ -32,7 +34,7 @@
     
     [self.view addSubview:listOfSongs]; // Добавляю таблицу
     
-    self.arrayOfSongs = @[@"Song1", @"Song2", @"Song3"]; // Наполняю массив треками(название файла композиции без расширения файла)
+    self.arrayOfSongs = @[@"01 - Come Together", @"02 - I Don't Care", @"02 - The Take Over, the Breaks Over"]; // Наполняю массив треками(название файла композиции без расширения файла)
 }
 
 #pragma mark - Get info of song
@@ -57,41 +59,75 @@
 }
 
 -(NSString*) getSongArtist:(NSString*) song {   // Получение имени исполнителя
-    self.fileURL = [[NSBundle mainBundle] URLForResource:song withExtension:@"mp3"];    // Определяю путь к треку
+    self.fileURL = [[NSBundle mainBundle] URLForResource:song withExtension:@"mp3"];
     
-    AVURLAsset *asset = [AVURLAsset URLAssetWithURL:self.fileURL options:nil];  // Инициализирую ассета по url
+    AVURLAsset *asset = [AVURLAsset URLAssetWithURL:self.fileURL options:nil];
     
     NSArray *artists = [AVMetadataItem metadataItemsFromArray:asset.commonMetadata
                                                       withKey:AVMetadataCommonKeyArtist
-                                                     keySpace:AVMetadataKeySpaceCommon];   // Нахожу имя исполнителя трека с помощью ассета по ключу
+                                                     keySpace:AVMetadataKeySpaceCommon];
     
     if (artists.count == 0) {
-        self.currentSongArtist = @"";  // если у трека не указано имени исполнителя, то использовать "пустоту"
+        self.currentSongArtist = @"";
     } else {
-        AVMetadataItem *artist = [artists objectAtIndex:0];         // если у трека указано имени исполнителя,
-        self.currentSongArtist = [artist.value copyWithZone:nil];   //то использовать его
+        AVMetadataItem *artist = [artists objectAtIndex:0];
+        self.currentSongArtist = [artist.value copyWithZone:nil];
     }
     
-    return self.currentSongArtist;    // Возвращаю имя исполнителя
+    return self.currentSongArtist;
+}
+
+-(NSString*) getAlbumName:(NSString*) song {    // Получение названия альбома
+    self.fileURL = [[NSBundle mainBundle] URLForResource:song withExtension:@"mp3"];
+    
+    AVURLAsset *asset = [AVURLAsset URLAssetWithURL:self.fileURL options:nil];
+    
+    NSArray *albumNames = [AVMetadataItem metadataItemsFromArray:asset.commonMetadata withKey:AVMetadataCommonKeyAlbumName keySpace:AVMetadataKeySpaceCommon];
+    
+    if (albumNames.count == 0) {
+        self.currentAlbumName = @"";
+    } else {
+        AVMetadataItem *albumName = [albumNames objectAtIndex:0];
+        self.currentAlbumName = [albumName.value copyWithZone:nil];
+    }
+    
+    return self.currentAlbumName;
 }
 
 -(UIImage*) getSongArtwork:(NSString*) song {   // Получение обложки альбома
-    self.fileURL = [[NSBundle mainBundle] URLForResource:song withExtension:@"mp3"];    // Определяю путь к треку
+    self.fileURL = [[NSBundle mainBundle] URLForResource:song withExtension:@"mp3"];
     
-    AVURLAsset *asset = [AVURLAsset URLAssetWithURL:self.fileURL options:nil];  // Инициализирую ассета по url
+    AVURLAsset *asset = [AVURLAsset URLAssetWithURL:self.fileURL options:nil];
     
     NSArray *artworks = [AVMetadataItem metadataItemsFromArray:asset.commonMetadata
                                                        withKey:AVMetadataCommonKeyArtwork
-                                                      keySpace:AVMetadataKeySpaceCommon];   // Нахожу обложку трека с помощью ассета по ключу
+                                                      keySpace:AVMetadataKeySpaceCommon];
     
     if (artworks.count == 0) {
-        self.currentSongArtwork = [UIImage imageNamed:@"Artwork.jpg"];  // если в треки не зашита обложка альбома, то использовать красный квадрат
+        self.currentSongArtwork = [UIImage imageNamed:@"Artwork.jpg"];
     } else {
-        AVMetadataItem *artwork = [artworks objectAtIndex:0];                                   // если у трека указана обложка альбома,
-        self.currentSongArtwork = [UIImage imageWithData:[artwork.value copyWithZone:nil]];     // то использовать ее
+        AVMetadataItem *artwork = [artworks objectAtIndex:0];
+        self.currentSongArtwork = [UIImage imageWithData:[artwork.value copyWithZone:nil]];
     }
     
-    return self.currentSongArtwork;    // Возвращаю обложку альбома
+    return self.currentSongArtwork;
+}
+
+-(NSString*) getCreator:(NSString*) song {  // Получение имени композитора
+    self.fileURL = [[NSBundle mainBundle] URLForResource:song withExtension:@"mp3"];
+    
+    AVURLAsset *asset = [AVURLAsset URLAssetWithURL:self.fileURL options:nil];
+    
+    NSArray *creators = [AVMetadataItem metadataItemsFromArray:asset.commonMetadata withKey:AVMetadataCommonKeyCreator keySpace:AVMetadataKeySpaceCommon];
+    
+    if (creators.count == 0) {
+        self.currentCreator = @"";
+    } else {
+        AVMetadataItem *creator = [creators objectAtIndex:0];
+        self.currentCreator = [creator.value copyWithZone:nil];
+    }
+    
+    return self.currentCreator;
 }
 
 #pragma mark - Change TableView
@@ -121,6 +157,24 @@
     cell.imageView.image = [self getSongArtwork:self.arrayOfSongs[index]];      //  Задаю обложку альбома для ячейки
     
     return cell;    // Возвращаю ячейку
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    SongViewController* vc = [[SongViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+    NSInteger index = [indexPath row];
+    
+    vc.imageArtwork = [self getSongArtwork:self.arrayOfSongs[index]];   // Установка обложки альбома
+    vc.artistName   = [self getSongArtist:self.arrayOfSongs[index]];
+    vc.songName     = [self getSongTitle:self.arrayOfSongs[index]];
+    vc.albumName    = [self getAlbumName:self.arrayOfSongs[index]];
+    vc.creator      = [self getCreator:self.arrayOfSongs[index]];
+    vc.fileURL      = self.fileURL;
+    
 }
 
 - (void)didReceiveMemoryWarning {

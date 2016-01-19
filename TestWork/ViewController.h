@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SongViewController.h"
 
 @interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     
