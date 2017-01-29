@@ -9,11 +9,9 @@
 #import "SongViewController.h"
 #import "ViewController.h"
 
-@import AVFoundation;
-
 @interface SongViewController ()
 
-@property(strong, nonatomic) AVAudioPlayer* audioPlayer;    // объявление плеера как свойство
+@property (strong, nonatomic) ViewController* vc;
 
 @end
 
@@ -75,36 +73,20 @@
     [self.view addSubview:stopButton];      // Добавление кнопки
     [stopButton addTarget:self action:@selector(stopButtonPressed) forControlEvents:UIControlEventTouchUpInside];       // Добавление действия для кнопки
     
-    [self setupAudio];  // Вызов метода setupAudio
-    
-}
+    self.vc = (ViewController *)[self.navigationController.viewControllers firstObject];
 
--(void) setupAudio {    // Настройка воспроизведения
-    NSError* err;
-    [[AVAudioSession sharedInstance] setActive:YES error:&err];     // Активировать аудиосессию
-    
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&err];    // Перевожу в беззвучный режим любое аудио, воспроизводимое в других приложениях
-    
-    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:self.fileURL error: &err];  // инициализация плеера с аудиофайлом
-    
-    [self.audioPlayer prepareToPlay];   // Подготовка аудио к воспроизведению
 }
 
 -(void) playButtonPressed {     // Нажатие кнопки воспроизведения
-    [self.audioPlayer play];    // Вызвать метод восроизведения
+    [self.vc play];
 }
 
 -(void) pauseButtonPressed {            // Нажатие кнопки паузы
-    if ([self.audioPlayer play]) {      // Если вызван метод воспроизведения,
-        [self.audioPlayer pause];       // то, вызвать метод паузы
-    }
+    [self.vc pause];
 }
 
 -(void) stopButtonPressed {                 // Нажатие кнопки остановки
-    if ([self.audioPlayer play]) {          // Если вызван метод воспроизведения,
-        [self.audioPlayer stop];            // то, вызвать метод остановки
-        self.audioPlayer.currentTime = 0;   // и обнулить текущее время
-    }
+    [self.vc stop];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import <AVFoundation/AVFoundation.h>
 
+@import AVFoundation;
+
 @interface ViewController ()
 
 @property (strong ,nonatomic) NSArray* arrayOfSongs;    // Объявляю массив как свойство, чтобы иметь доступ к нему в любом методе
@@ -19,9 +21,12 @@
 @property (strong ,nonatomic) NSString* currentAlbumName;
 @property (strong ,nonatomic) NSString* currentCreator;
 
+@property(strong, nonatomic) AVAudioPlayer* audioPlayer;    // объявление плеера как свойство
+
 @end
 
 @implementation ViewController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,6 +40,7 @@
     [self.view addSubview:listOfSongs]; // Добавляю таблицу
     
     self.arrayOfSongs = @[@"01 - Come Together", @"02 - I Don't Care", @"02 - The Take Over, the Breaks Over"]; // Наполняю массив треками(название файла композиции без расширения файла)
+    
 }
 
 #pragma mark - Get info of song
@@ -175,10 +181,51 @@
     vc.creator      = [self getCreator:self.arrayOfSongs[index]];
     vc.fileURL      = self.fileURL;
     
+    if ((self.audioPlayer.currentTime == 0) && (self.audioPlayer.isPlaying == NO)) {
+        [self setupAudio];  // Вызов метода setupAudio
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+-(void) setupAudio {    // Настройка воспроизведения
+    NSError* err;
+    [[AVAudioSession sharedInstance] setActive:YES error:&err];     // Активировать аудиосессию
+    
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&err];    // Перевожу в беззвучный режим любое аудио, воспроизводимое в других приложениях
+    
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:self.fileURL error: &err];  // инициализация плеера с аудиофайлом
+    
+    [self.audioPlayer prepareToPlay];   // Подготовка аудио к воспроизведению
+
+    
+}
+
+-(void)play {
+    if (![self.audioPlayer.url isEqual:self.fileURL]) {
+        [self setupAudio];  // Вызов метода setupAudio
+    }
+    
+    [self.audioPlayer play];    // Вызвать метод восроизведения
+    
+    NSLog(@"%@", self.audioPlayer.url);
+    NSLog(@"%@", self.fileURL);
+}
+
+-(void)pause {
+    if ([self.audioPlayer play]) {      // Если вызван метод воспроизведения,
+        [self.audioPlayer pause];       // то, вызвать метод паузы
+    }
+}
+
+-(void)stop {
+    if ([self.audioPlayer play]) {          // Если вызван метод воспроизведения,
+        [self.audioPlayer stop];            // то, вызвать метод остановки
+        self.audioPlayer.currentTime = 0;   // и обнулить текущее время
+    }
 }
 
 @end
